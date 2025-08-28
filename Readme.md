@@ -2,6 +2,77 @@
 
 A full‑stack Electronic Shelf Label (ESL) Management Platform built with FastAPI (Python) and Next.js (React/TypeScript). It provides authentication, stores, products, gateways, ESL devices, and sync logs management with a modern UI.
 
+## What You Can Do With This Platform
+
+- Manage organizations and retail entities end‑to‑end: stores, categories, products, gateways, and ESL devices
+- Authenticate users and protect routes using JWT‑based sessions
+- Create, read, update, and delete (CRUD) all core entities via a clean UI and REST API
+- View and filter synchronization logs to audit ESL update operations
+- Use a responsive, accessible UI built on Tailwind CSS and shadcn/ui
+
+## Key Features
+
+- Authentication and Authorization
+  - Email/password login with JWT issuance on the backend
+  - Protected routes and session handling on the frontend
+  - Role‑aware guards ready for expansion (e.g., Admin/Manager/Staff)
+
+- Stores Management
+  - Create and manage store records and metadata
+  - Associate gateways and ESL devices to specific stores
+
+- Products and Categories
+  - Full CRUD for products and categories
+  - Designed to map products to ESL devices for label rendering
+
+- Gateways and ESL Devices
+  - Register and manage gateways
+  - Track ESL devices, their metadata, and associations
+
+- Sync Logs and Auditing
+  - Inspect synchronization runs and outcomes
+  - Filter and paginate historical logs for troubleshooting
+
+- Developer‑Friendly Architecture
+  - Typed API schemas with Pydantic
+  - A small API client layer on the frontend (`frontend/lib/api/*.ts`)
+  - Modern React patterns with the App Router and context providers
+
+## Pages and Screens (Frontend)
+
+- `landing/` – marketing/overview entry point
+- `login/`, `register/` – authentication flow
+- `dashboard.tsx` – top‑level dashboard shell
+- `stores/` – stores listing and management
+- `products/` – products listing and management
+- `app/esl-management/` – ESL device management views
+- `gateways/` – gateway listing and management
+- `sync-logs/` – synchronization history and filtering
+- `users/` – user listing and management (admin‑focused)
+
+## Typical Workflows
+
+1) Admin registers or logs in to receive a JWT session
+2) Create one or more stores and register gateways for each store
+3) Add categories and products
+4) Register ESL devices and associate them to products/stores
+5) Trigger or monitor sync operations; review `sync-logs` for results
+
+## API Overview (Backend)
+
+The backend exposes RESTful routes under `backend/routes/` for:
+
+- `auth` – login/refresh and token handling
+- `user` – user creation, listing, and details
+- `store` – CRUD for store entities
+- `category` – CRUD for categories
+- `product` – CRUD for products
+- `gateway` – CRUD for gateways
+- `esl` – CRUD for ESL devices
+- `sync_log` – read/filter synchronization history
+
+All endpoints use Pydantic schemas under `backend/schemas/` and persist to MongoDB via models in `backend/models/`.
+
 ## Tech Stack
 
 - Backend: FastAPI, Uvicorn, Pydantic, MongoDB
