@@ -1,0 +1,5 @@
+Requirement already satisfied: pyOpenSSL in c:\users\admin\anaconda3\lib\site-packages (21.0.0)
+Requirement already satisfied: six>=1.5.2 in c:\users\admin\anaconda3\lib\site-packages (from pyOpenSSL) (1.17.0)
+Requirement already satisfied: cryptography>=3.3 in c:\users\admin\anaconda3\lib\site-packages (from pyOpenSSL) (45.0.4)
+Requirement already satisfied: cffi>=1.14 in c:\users\admin\anaconda3\lib\site-packages (from cryptography>=3.3->pyOpenSSL) (1.17.1)
+Requirement already satisfied: pycparser in c:\users\admin\anaconda3\lib\site-packages (from cffi>=1.14->cryptography>=3.3->pyOpenSSL) (2.22)
